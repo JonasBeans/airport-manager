@@ -6,10 +6,14 @@ import be.jonasboon.airportmanager.mapper.PilotMapper;
 import be.jonasboon.airportmanager.model.Pilot;
 import be.jonasboon.airportmanager.repository.PilotRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static java.lang.String.format;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 public class PilotService {
@@ -43,12 +47,12 @@ public class PilotService {
 
             return PilotMapper.toDto(
                     pilotRepository.save(PilotMapper.toEntity(id, pilotDTO)));
-        } throw new PilotNotFoundException(id);
+        } else throw new ResponseStatusException(NOT_FOUND, format("No pilot data found for pilot with id: %s", id));
     }
 
     public void deletePilot(Integer id) {
         if(pilotRepository.findById(id).isPresent()){
              pilotRepository.deleteById(id);
-        } else throw new PilotNotFoundException(id);
+        } else throw new ResponseStatusException(NOT_FOUND, format("No pilot data found for pilot with id: %s", id));
     }
 }

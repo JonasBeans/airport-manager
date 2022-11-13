@@ -6,12 +6,12 @@ minimalistic airport manager application would look like.
 This application has the ability to register pilots as well as passengers.    
 It also has the ability to register airplanes that will use the airport. 
 
-And lastly to combine to two it has the ability to register a flight.   
-The flight has a list of passengers, a pilot (MVP*), an airplane and a    
+Lastly to combine to two it has the ability to register a flight.   
+The flight has a list of passengers, a pilot (MVP*), an airplane and an   
 arrival time and place and departure time and destination airport. 
 
 *MVP    
-For the MVP a flight will only have one pilot. In future plans it will have the to register    
+For the MVP a flight will only have one pilot. In future plans it will have the ability to register    
 a Captain, and a First Officer. 
 
 ## UML

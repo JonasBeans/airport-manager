@@ -3,10 +3,7 @@ package be.jonasboon.airportmanager.controller;
 import be.jonasboon.airportmanager.dto.AircraftDTO;
 import be.jonasboon.airportmanager.service.AircraftService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -32,5 +29,10 @@ public class AircraftController {
     @GetMapping("/all")
     public List<AircraftDTO> getAllAircrafts(){
         return aircraftService.getAllAircrafts();
+    }
+
+    @PostMapping
+    public AircraftDTO createAircraft(@RequestBody AircraftDTO aircraftDTO){
+        return aircraftService.createAircraft(aircraftDTO);
     }
 }

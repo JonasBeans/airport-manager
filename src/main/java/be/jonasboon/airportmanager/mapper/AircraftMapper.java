@@ -9,10 +9,19 @@ public class AircraftMapper {
 
     public static AircraftDTO toDTO(Aircraft aircraft){
         return AircraftDTO.builder()
-                .withCallSign(aircraft.getId())
+                .withCallSign(aircraft.getCallSign())
                 .withModel(aircraft.getModel())
                 .withType(aircraft.getType())
                 .withModelYear(aircraft.getModelYear())
+                .build();
+    }
+
+    public static Aircraft toEntity(AircraftDTO aircraftDTO){
+        return Aircraft.builder()
+                .withCallSign(aircraftDTO.getCallSign())
+                .withModel(aircraftDTO.getModel())
+                .withType(aircraftDTO.getType())
+                .withModelYear(aircraftDTO.getModelYear())
                 .build();
     }
 }

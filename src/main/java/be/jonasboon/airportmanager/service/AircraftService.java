@@ -2,6 +2,7 @@ package be.jonasboon.airportmanager.service;
 
 import be.jonasboon.airportmanager.dto.AircraftDTO;
 import be.jonasboon.airportmanager.mapper.AircraftMapper;
+import be.jonasboon.airportmanager.model.Aircraft;
 import be.jonasboon.airportmanager.repository.AircraftRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +28,11 @@ public class AircraftService {
         return aircraftRepository.findAll().stream()
                 .map(AircraftMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public AircraftDTO createAircraft(AircraftDTO aircraftDTO) {
+        aircraftDTO.hasNoNull();
+        Aircraft aircraft = aircraftRepository.save(AircraftMapper.toEntity(aircraftDTO));
+        return AircraftMapper.toDTO(aircraft);
     }
 }

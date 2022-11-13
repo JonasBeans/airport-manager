@@ -1,6 +1,7 @@
 package be.jonasboon.airportmanager.dto;
 
 import be.jonasboon.airportmanager.exception.common.NullFromDTO;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Value
@@ -8,7 +9,10 @@ import lombok.*;
 public class PilotDTO {
 
     int id;
+
+    @JsonProperty("first_name")
     String firstName;
+    @JsonProperty("last_name")
     String lastName;
 
     public boolean hasNoNull(){

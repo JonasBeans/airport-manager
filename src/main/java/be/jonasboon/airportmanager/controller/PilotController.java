@@ -41,7 +41,7 @@ public class PilotController {
     @PutMapping("/{pilot_id}")
     public PilotDTO updatePilot(@PathVariable("pilot_id") String id,
                                 @RequestBody PilotDTO pilotDTO){
-        return pilotService.updatePilot(Integer.valueOf(id), pilotDTO);
+        return pilotService.updatePilot(valueOf(id), pilotDTO);
     }
 
     @DeleteMapping("/{pilot_id}")
