@@ -1,4 +1,4 @@
-package be.jonasboon.airportmanager.exception;
+package be.jonasboon.airportmanager.exception.common;
 
 public class NullFromDTO extends RuntimeException{
     public NullFromDTO(String nullField) {

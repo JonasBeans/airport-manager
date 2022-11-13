@@ -39,8 +39,13 @@ public class PilotController {
     }
 
     @PutMapping("/{pilot_id}")
-    public PilotDTO updatePilot(@PathVariable Integer id,
+    public PilotDTO updatePilot(@PathVariable("pilot_id") String id,
                                 @RequestBody PilotDTO pilotDTO){
-        return pilotService.updatePilot(id, pilotDTO);
+        return pilotService.updatePilot(Integer.valueOf(id), pilotDTO);
+    }
+
+    @DeleteMapping("/{pilot_id}")
+    public void deletePilot(@PathVariable("pilot_id") Integer id){
+        pilotService.deletePilot(id);
     }
 }

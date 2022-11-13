@@ -1,4 +1,4 @@
-package be.jonasboon.airportmanager.exception;
+package be.jonasboon.airportmanager.exception.pilot;
 
 public class PilotNotFoundException extends RuntimeException{
     public PilotNotFoundException(Integer pilotID) {
