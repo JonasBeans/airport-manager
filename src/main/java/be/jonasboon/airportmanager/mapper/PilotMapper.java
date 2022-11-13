@@ -15,4 +15,11 @@ public class PilotMapper {
                 .build();
     }
 
+    public static Pilot toEntity(PilotDTO pilotDTO){
+        return Pilot.builder()
+                .firstName(pilotDTO.getFirst_name())
+                .lastName(pilotDTO.getLast_name())
+                .build();
+    }
+
 }

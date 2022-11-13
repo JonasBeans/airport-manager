@@ -2,11 +2,10 @@ package be.jonasboon.airportmanager.controller;
 
 import be.jonasboon.airportmanager.dto.PilotDTO;
 import be.jonasboon.airportmanager.service.PilotService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 import static java.lang.Integer.valueOf;
 import static java.lang.String.format;
@@ -16,16 +15,26 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 @RequestMapping("api/v1/pilot")
 public class PilotController {
 
-    private final PilotService pilotServie;
+    private final PilotService pilotService;
 
 
     public PilotController(PilotService pilotServie) {
-        this.pilotServie = pilotServie;
+        this.pilotService = pilotServie;
     }
 
-    @GetMapping("/get")
+    @GetMapping("")
     public PilotDTO getPilotById(@RequestParam(name = "pilot_id") String id){
-        return pilotServie.getPilotFromId(valueOf(id))
+        return pilotService.getPilotFromId(valueOf(id))
                 .orElseThrow(() -> new ResponseStatusException(NOT_FOUND, format("No pilot data found for pilot with id: %s", id)));
+    }
+
+    @GetMapping("/all")
+    public List<PilotDTO> getAllPilots(){
+        return pilotService.getAllPilots();
+    }
+
+    @PostMapping("")
+    public PilotDTO createPilot(@RequestBody PilotDTO pilotDTO){
+        return pilotService.createPilot(pilotDTO);
     }
 }

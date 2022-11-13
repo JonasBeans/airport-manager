@@ -2,22 +2,23 @@ package be.jonasboon.airportmanager.model;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 import static lombok.AccessLevel.PRIVATE;
 
 @Entity
 @Table(name = "pilot", schema = "application")
 @Getter
+@Builder
 @NoArgsConstructor(access = PROTECTED)
 @AllArgsConstructor(access = PRIVATE)
 public class Pilot {
 
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = IDENTITY)
     Integer id;
 
     @Column(name = "first_name")
@@ -25,4 +26,5 @@ public class Pilot {
 
     @Column(name = "last_name")
     String lastName;
+
 }
