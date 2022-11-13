@@ -37,4 +37,10 @@ public class PilotController {
     public PilotDTO createPilot(@RequestBody PilotDTO pilotDTO){
         return pilotService.createPilot(pilotDTO);
     }
+
+    @PutMapping("/{pilot_id}")
+    public PilotDTO updatePilot(@PathVariable Integer id,
+                                @RequestBody PilotDTO pilotDTO){
+        return pilotService.updatePilot(id, pilotDTO);
+    }
 }

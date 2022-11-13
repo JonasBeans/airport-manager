@@ -1,5 +1,6 @@
 package be.jonasboon.airportmanager.dto;
 
+import be.jonasboon.airportmanager.exception.NullFromDTO;
 import lombok.*;
 
 @Value
@@ -11,6 +12,12 @@ public class PilotDTO {
     String last_name;
 
     public boolean hasNoNull(){
-        return !(this.getFirst_name() == null) && !(this.getLast_name() == null);
+        if(this.getFirst_name() == null){
+            throw new NullFromDTO(this.getFirst_name());
+        }
+        if(this.getLast_name() == null){
+            throw new NullFromDTO(this.getLast_name());
+        }
+        return true;
     }
 }

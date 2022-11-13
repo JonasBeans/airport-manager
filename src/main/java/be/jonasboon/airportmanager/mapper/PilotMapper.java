@@ -22,4 +22,12 @@ public class PilotMapper {
                 .build();
     }
 
+    public static Pilot toEntity(Integer id, PilotDTO pilotDTO){
+        return Pilot.builder()
+                .id(id)
+                .firstName(pilotDTO.getFirst_name())
+                .lastName(pilotDTO.getLast_name())
+                .build();
+    }
+
 }
