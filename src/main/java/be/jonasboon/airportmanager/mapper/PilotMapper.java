@@ -10,23 +10,23 @@ public class PilotMapper {
     public static PilotDTO toDto(Pilot pilot){
         return PilotDTO.builder()
                 .withId(pilot.getId())
-                .withFirst_name(pilot.getFirstName())
-                .withLast_name(pilot.getLastName())
+                .withFirstName(pilot.getFirstName())
+                .withLastName(pilot.getLastName())
                 .build();
     }
 
     public static Pilot toEntity(PilotDTO pilotDTO){
         return Pilot.builder()
-                .firstName(pilotDTO.getFirst_name())
-                .lastName(pilotDTO.getLast_name())
+                .firstName(pilotDTO.getFirstName())
+                .lastName(pilotDTO.getLastName())
                 .build();
     }
 
     public static Pilot toEntity(Integer id, PilotDTO pilotDTO){
         return Pilot.builder()
                 .id(id)
-                .firstName(pilotDTO.getFirst_name())
-                .lastName(pilotDTO.getLast_name())
+                .firstName(pilotDTO.getFirstName())
+                .lastName(pilotDTO.getLastName())
                 .build();
     }
 

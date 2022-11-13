@@ -14,6 +14,10 @@ arrival time and place and departure time and destination airport.
 For the MVP a flight will only have one pilot. In future plans it will have the to register    
 a Captain, and a First Officer. 
 
+## UML
+
+
+
 ## How to run it localy
 ### Docker
 ``docker run ... <INSERT DOCKER COMMAND>`` 

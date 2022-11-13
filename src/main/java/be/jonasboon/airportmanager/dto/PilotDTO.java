@@ -8,14 +8,14 @@ import lombok.*;
 public class PilotDTO {
 
     int id;
-    String first_name;
-    String last_name;
+    String firstName;
+    String lastName;
 
     public boolean hasNoNull(){
-        if(this.getFirst_name() == null){
+        if(this.getFirstName() == null){
             throw new NullFromDTO("first name");
         }
-        if(this.getLast_name() == null){
+        if(this.getLastName() == null){
             throw new NullFromDTO("last name");
         }
         return true;
