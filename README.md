@@ -20,11 +20,15 @@ a Captain, and a First Officer.
 
 ## How to run it localy
 ### Docker
-``docker run ... <INSERT DOCKER COMMAND>`` 
+to initiate the docker container run following command (from the docker folder)
+``docker compose --file .\docker-compose.yml up`` 
 
 ### Liquibase
 
-Liquibase should do the database initialisation
+After you have initialised the docker container Liquibase should do the database initialisation. 
+In order to activate Liquibase simply run the application. 
+If changes need to be made, construct a sql, xml, ... file containing the changes and 
+add them to the resources/db/migration folder. Afterwards add the file name to the changelogs.xml file. 
 
 ### Profile
 There is no production profile.    
@@ -34,6 +38,6 @@ The app can run localy without specific profile.
 
 - Liquibase
 - SpringBoot
-- Testcontainers
-- Swagger-ui
+- Testcontainers (should still be configured)
+- Swagger-ui (should still be added)
 - Lombok
