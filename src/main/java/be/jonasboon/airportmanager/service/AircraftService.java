@@ -4,11 +4,17 @@ import be.jonasboon.airportmanager.dto.AircraftDTO;
 import be.jonasboon.airportmanager.mapper.AircraftMapper;
 import be.jonasboon.airportmanager.model.Aircraft;
 import be.jonasboon.airportmanager.repository.AircraftRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static be.jonasboon.airportmanager.mapper.AircraftMapper.toDTO;
+import static be.jonasboon.airportmanager.mapper.AircraftMapper.toEntity;
+import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Service
 public class AircraftService {
@@ -32,7 +38,15 @@ public class AircraftService {
 
     public AircraftDTO createAircraft(AircraftDTO aircraftDTO) {
         aircraftDTO.hasNoNull();
-        Aircraft aircraft = aircraftRepository.save(AircraftMapper.toEntity(aircraftDTO));
-        return AircraftMapper.toDTO(aircraft);
+        Aircraft aircraft = aircraftRepository.save(toEntity(aircraftDTO));
+        return toDTO(aircraft);
+    }
+
+    public AircraftDTO updateAircraft(String callsign, AircraftDTO aircraftDTO) {
+        if(aircraftRepository.findById(callsign).isPresent()){
+            aircraftDTO.hasNoNullForUpdate();
+            Aircraft aircraft = aircraftRepository.save(toEntity(callsign, aircraftDTO));
+            return toDTO(aircraft);
+        } else throw new ResponseStatusException(NOT_FOUND, String.format("No aircraft found with that id: %s", callsign));
     }
 }

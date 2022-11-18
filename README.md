@@ -20,7 +20,7 @@ a Captain, and a First Officer.
 
 ## How to run it localy
 ### Docker
-to initiate the docker container run following command (from the docker folder)
+to initiate the docker container run following command (from the docker folder)    
 ``docker compose --file .\docker-compose.yml up`` 
 
 ### Liquibase

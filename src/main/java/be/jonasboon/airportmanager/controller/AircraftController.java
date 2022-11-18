@@ -35,4 +35,10 @@ public class AircraftController {
     public AircraftDTO createAircraft(@RequestBody AircraftDTO aircraftDTO){
         return aircraftService.createAircraft(aircraftDTO);
     }
+
+    @PutMapping("/{aircraft_callsign}")
+    public AircraftDTO updateAicraft(@PathVariable("aircraft_callsign") String callsign,
+                                     @RequestBody AircraftDTO aircraftDTO){
+        return aircraftService.updateAircraft(callsign, aircraftDTO);
+    }
 }
