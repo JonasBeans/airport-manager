@@ -24,4 +24,12 @@ public class AircraftMapper {
                 .withModelYear(aircraftDTO.getModelYear())
                 .build();
     }
+    public static Aircraft toEntity(String callsign, AircraftDTO aircraftDTO){
+        return Aircraft.builder()
+                .withCallSign(callsign)
+                .withModel(aircraftDTO.getModel())
+                .withType(aircraftDTO.getType())
+                .withModelYear(aircraftDTO.getModelYear())
+                .build();
+    }
 }
