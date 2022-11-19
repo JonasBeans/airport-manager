@@ -26,19 +26,18 @@ public class AircraftDTO {
      * @return true if DTO has no Null values
      */
     public boolean hasNoNull(){
-        //todo: find way around because when updating dto will have no callsign
-        /*if(this.getCallSign() == null){
+        if(this.getCallSign() == null){
             throw new NullFromDTO("call sign");
-        }*/
+        }
         if(this.getModel() == null){
             throw new NullFromDTO("model");
         }
         if(this.getType() == null){
             throw new NullFromDTO("type");
         }
-        /*if(this.getModelYear() == null){
+        if(this.getModelYear() == null){
             throw new NullFromDTO("model year");
-        }*/ return true;
+        } return true;
     }
 
     /**

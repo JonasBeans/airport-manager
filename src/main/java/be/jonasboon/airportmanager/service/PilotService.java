@@ -44,7 +44,6 @@ public class PilotService {
     public PilotDTO updatePilot(Integer id, PilotDTO pilotDTO) {
         if(pilotRepository.findById(id).isPresent()) {
             pilotDTO.hasNoNull();
-
             return PilotMapper.toDto(
                     pilotRepository.save(PilotMapper.toEntity(id, pilotDTO)));
         } else throw new ResponseStatusException(NOT_FOUND, format("No pilot data found for pilot with id: %s", id));
