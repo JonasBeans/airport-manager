@@ -3,6 +3,7 @@ package be.jonasboon.airportmanager.controller;
 import be.jonasboon.airportmanager.dto.AircraftDTO;
 import be.jonasboon.airportmanager.service.AircraftService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -40,5 +41,10 @@ public class AircraftController {
     public AircraftDTO updateAicraft(@PathVariable("aircraft_callsign") String callsign,
                                      @RequestBody AircraftDTO aircraftDTO){
         return aircraftService.updateAircraft(callsign, aircraftDTO);
+    }
+
+    @DeleteMapping("/{aircraft_callsign}")
+    public ResponseEntity<HttpStatus> deleteAircraft(@PathVariable("aircraft_callsign") String callSign){
+        return aircraftService.deleteAircraft(callSign);
     }
 }
