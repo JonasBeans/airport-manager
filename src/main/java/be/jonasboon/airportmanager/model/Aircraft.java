@@ -33,4 +33,7 @@ public class Aircraft {
 
     @Column(name = "modelyear")
     String modelYear;
+
+    @Column(name = "maximum_occupation")
+    Integer maxOccupation;
 }

@@ -13,6 +13,7 @@ public class AircraftMapper {
                 .withModel(aircraft.getModel())
                 .withType(aircraft.getType())
                 .withModelYear(aircraft.getModelYear())
+                .withMaxOccupation(aircraft.getMaxOccupation())
                 .build();
     }
 
@@ -22,6 +23,7 @@ public class AircraftMapper {
                 .withModel(aircraftDTO.getModel())
                 .withType(aircraftDTO.getType())
                 .withModelYear(aircraftDTO.getModelYear())
+                .withMaxOccupation(aircraftDTO.getMaxOccupation())
                 .build();
     }
     public static Aircraft toEntity(String callsign, AircraftDTO aircraftDTO){
@@ -30,6 +32,7 @@ public class AircraftMapper {
                 .withModel(aircraftDTO.getModel())
                 .withType(aircraftDTO.getType())
                 .withModelYear(aircraftDTO.getModelYear())
+                .withMaxOccupation(aircraftDTO.getMaxOccupation())
                 .build();
     }
 }

@@ -20,6 +20,8 @@ public class AircraftDTO {
     String type;
     @JsonProperty("model_year")
     String modelYear;
+    @JsonProperty("maximum_occupation")
+    Integer maxOccupation;
 
     /**
      * @description: Method to check if new incoming DTO has no null values
@@ -37,6 +39,9 @@ public class AircraftDTO {
         }
         if(this.getModelYear() == null){
             throw new NullFromDTO("model year");
+        }
+        if(this.getMaxOccupation() == null){
+            throw new NullFromDTO("max. occupation");
         } return true;
     }
 
@@ -53,6 +58,9 @@ public class AircraftDTO {
         }
         if(this.getModelYear() == null){
             throw new NullFromDTO("model year");
+        }
+        if(this.getMaxOccupation() == null){
+            throw new NullFromDTO("maximum occupation");
         } return true;
     }
 
