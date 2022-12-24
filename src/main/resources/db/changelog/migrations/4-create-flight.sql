@@ -8,7 +8,3 @@ CREATE TABLE IF NOT EXISTS application.flight
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
 );
-
-INSERT INTO application.flight(
-	id, pilot_id)
-	VALUES ('QTA543', 1);
