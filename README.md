@@ -31,8 +31,10 @@ If changes need to be made, construct a sql, xml, ... file containing the change
 add them to the resources/db/migration folder. Afterwards add the file name to the changelogs.xml file. 
 
 ### Profile
-There is no production profile.    
-The app can run localy without specific profile. 
+
+After starting the docker container
+start application with profile 'local' for development.
+This will add test data to the database.  
 
 ## Technologies
 
